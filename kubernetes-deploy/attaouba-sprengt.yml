@@ -1,0 +1,8 @@
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: attaouba-sprengt
+spec:
+  domains:
+  - attaouba.sprengt.as
+  - sjekkinn.attaouba.no

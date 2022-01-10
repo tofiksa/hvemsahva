@@ -1,0 +1,65 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: hvemsahva-ui
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hvemsahva-ui
+  minReadySeconds: 5
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: hvemsahva-ui
+    spec:
+      containers:
+        - name: hvemsahva-ui
+          image: gcr.io/api-project-767352099547/attouba-register-ui:latest
+          env:
+            - name: REACT_APP_API_URL
+              value: "https://api.sprengt.as"
+            - name: REACT_APP_AUTH_URL
+              value: "https://api.sprengt.as/getauthurl"
+            - name: REACT_APP_TOKEN_URL
+              value: "https://api.sprengt.as/token"
+            - name: REACT_APP_USERINFO_URL
+              value: "https://api.sprengt.as/vipps-userinfo-api/userinfo"
+            - name: REACT_APP_AUTH_SIGNIN
+              value: "https://api.sprengt.as/auth/signin"
+            - name: NODE_ENV
+              value: "production"
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            successThreshold: 3
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: attouba-register-ui-service
+  labels:
+    app: attouba-register-ui
+  annotations:
+    cloud.google.com/neg: '{"ingress": true}'
+spec:
+  ports:
+    - name: port0
+      port: 80
+      protocol: TCP
+      targetPort: 80
+  selector:
+    app: attouba-register-ui
+  type: NodePort
