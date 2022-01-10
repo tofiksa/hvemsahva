@@ -5,11 +5,11 @@ function App() {
     <div className="App">
       
       <div id="container">
-          Hvem sa
+          Hvem sa hva om 
         <div id="flip">
-          <div><div>hva</div></div>
-          <div><div>hvor</div></div>
-          <div><div>hvem</div></div>
+          <div><div>Politikk</div></div>
+          <div><div>Journalistikk</div></div>
+          <div><div>Trafikk</div></div>
         </div>
         ?
       </div>
