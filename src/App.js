@@ -1,21 +1,14 @@
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { FrontPage } from './templates/FrontPage'
 
 function App() {
   return (
     <div className="App">
-      
-      <div id="container">
-          Hvem sa hva om 
-        <div id="flip">
-          <div><div>Politikk</div></div>
-          <div><div>Journalistikk</div></div>
-          <div><div>Trafikk</div></div>
+     
+        <FrontPage />
         </div>
-        ?
-      </div>
-
-
-    </div>
+      
   );
 }
 
