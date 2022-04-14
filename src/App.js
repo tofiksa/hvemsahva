@@ -16,8 +16,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<StartSide />} />
-        <Route path="/quiz" element={<FrontPage />}/>
+        <Route path="/quiz" element={<StartSide />} />
+        <Route path="/" element={<FrontPage />}/>
       </Routes>
     </BrowserRouter>
   );
