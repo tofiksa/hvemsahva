@@ -9,6 +9,7 @@ import EASTEREGGS from '../images/easteregg.png'
 import JOSEFSEKK from '../images/josefsekk.png'
 import ASH from '../images/ash.jpeg'
 import POKEBALL from '../images/pokeball.png'
+import DUKKEHUS from '../images/dukkehus.png'
 
 export const Personalia = () => {
 
@@ -131,7 +132,7 @@ const personaliaJson = {
         {
             "type": "html",
             "name": "info",
-            "html": `<img src=${ASH} height="150" width="170" /><legend/>`,
+            "html": `<img src=${DUKKEHUS} height="150" width="170" /><legend/>`,
         },
         {
         "type": "radiogroup",
