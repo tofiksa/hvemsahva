@@ -7,7 +7,7 @@ export const Header = () => {
     return (
     <div id="header">
     <h1>
-        Velkommen til Påskeeggjakt
+        Velkommen til Påskeeggjakt 2023
         <img src={EASTER_EGGS} height="50" width="50" alt="easteregg"/>
     </h1>
     </div>);

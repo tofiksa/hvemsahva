@@ -17,7 +17,7 @@ export const Personalia = () => {
     
 
 const personaliaJson = {
-    "title": "Påskeeggjakt",
+    "title": "Påskeeggjakt 2023",
     "showProgressBar": "bottom",
     "firstPageIsStarted": true,
     "startSurveyText": "Start Quiz",
