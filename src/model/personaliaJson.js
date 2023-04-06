@@ -1,15 +1,5 @@
 import { Survey, Model, StylesManager } from 'survey-react';
 import { useCallback } from 'react';
-import FATIMAS_HAND from '../images/fatimashand.png'
-import CATS_IMG from '../images/cats.avif'
-import BUNNIES_IMG from '../images/rabbit.webp'
-import BEAR_IMG from '../images/bear.jpeg'
-import TREX_IMG from '../images/trex.jpeg'
-import EASTEREGGS from '../images/easteregg.png'
-import JOSEFSEKK from '../images/josefsekk.png'
-import ASH from '../images/ash.jpeg'
-import POKEBALL from '../images/pokeball.png'
-import DUKKEHUS from '../images/dukkehus.png'
 
 export const Personalia = () => {
 
@@ -52,7 +42,7 @@ const personaliaJson = {
             {
                 "type":"html",
                 "name":"info2",
-                "html":`<img src=${FATIMAS_HAND} height="100" width="170" /><legend/>`
+                "html":`<img src=/ height="100" width="170" /><legend/>`
             },
             {
             "type": "ranking",
@@ -77,16 +67,16 @@ const personaliaJson = {
                 "choices": [
                     {
                         "value": "cat",
-                        "imageLink": `${CATS_IMG}`
+                        "imageLink": ``
                     }, {
                         "value": "rabit",
-                        "imageLink": `${BUNNIES_IMG}`
+                        "imageLink": ``
                     }, {
                         "value": "trex",
-                        "imageLink": `${TREX_IMG}`
+                        "imageLink": ``
                     }, {
                         "value": "bear",
-                        "imageLink": `${BEAR_IMG}`
+                        "imageLink": ``
                     }
                 ],
                 "correctAnswer": "rabit"
@@ -95,7 +85,7 @@ const personaliaJson = {
     "elements": [{
         "type": "html",
         "name": "info",
-        "html": `<img src=${EASTEREGGS} height="300" width="150" /><legend/>`,
+        "html": `<img src=/ height="300" width="150" /><legend/>`,
     },
     {
         "type": "html",
@@ -116,7 +106,7 @@ const personaliaJson = {
     {
         "type": "html",
         "name": "info",
-        "html": `<img src=${JOSEFSEKK} height="250" width="170" /><legend/>`,
+        "html": `<img src=/ height="250" width="170" /><legend/>`,
     },
     {
     "type": "radiogroup",
@@ -132,7 +122,7 @@ const personaliaJson = {
         {
             "type": "html",
             "name": "info",
-            "html": `<img src=${DUKKEHUS} height="150" width="170" /><legend/>`,
+            "html": `<img src=/ height="150" width="170" /><legend/>`,
         },
         {
         "type": "radiogroup",
