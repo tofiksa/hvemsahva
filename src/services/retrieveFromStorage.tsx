@@ -1,7 +1,7 @@
 import fleekStorage from '@fleekhq/fleek-storage-js'
 
-const apiKey = process.env.API_KEY
-const apiSecret = process.env.API_SECRET
+const apiKey = process.env.REACT_APP_API_KEY
+const apiSecret = process.env.REACT_APP_API_SECRET
 
 export const getImageFromStorage = async (key) => {
     const input = {

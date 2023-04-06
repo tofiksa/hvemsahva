@@ -20,7 +20,7 @@
     "web-vitals": "^3.3.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "from-env react-scripts start --apikey REACT_APP_API_KEY=%REACT_APP_API_KEY --apisecret REACT_APP_API_SECRET=%REACT_APP_API_SECRET",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -45,5 +45,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3",
+    "from-env": "^1.1.4"
   }
 }
