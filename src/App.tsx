@@ -1,7 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FrontPage } from './templates/FrontPage'
-import { CluesPage } from './templates/CluesPage';
+import CluesPage from './templates/CluesPage';
 import {
   HashRouter,
   Routes,
