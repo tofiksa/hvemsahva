@@ -16,7 +16,9 @@
     "react-router": "^6.10.0",
     "react-router-dom": "^6.10.0",
     "react-scripts": "^5.0.1",
+    "survey-core": "^1.9.81",
     "survey-react": "^1.9.80",
+    "survey-react-ui": "^1.9.81",
     "web-vitals": "^3.3.0"
   },
   "scripts": {
@@ -34,11 +36,15 @@
       }
     }
   },
+  
   "browserslist": {
     "production": [
       ">0.2%",
       "not dead",
       "not op_mini all"
+    ],
+    "ignoreErrors": [      
+      "ResizeObserver loop limit exceeded"
     ],
     "development": [
       "last 1 chrome version",
