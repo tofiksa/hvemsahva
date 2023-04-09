@@ -2,6 +2,7 @@
   "name": "hvemsahva",
   "version": "0.1.0",
   "private": true,
+  "homepage": "./",
   "dependencies": {
     "@fleekhq/fleek-storage-js": "^1.0.24",
     "@testing-library/jest-dom": "^5.16.5",
