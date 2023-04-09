@@ -4,6 +4,8 @@ import LION from '../images/lion.jpeg'
 import RABIT from '../images/rabit.png'
 import CHICKEN from '../images/chicken.jpeg'
 import BEAR from '../images/bear.png'
+import RAMADAN from '../images/ramadan.jpeg'
+import MAN_PRAYING from '../images/manpraying.jpeg'
 
 
 export const personaliaJson = {
@@ -12,17 +14,13 @@ export const personaliaJson = {
     "firstPageIsStarted": true,
     "startSurveyText": "Start Quiz",
     "completedHtmlOnCondition": [{
-        "expression": "{totalScore} > 14",
+        "expression": "{totalScore} > 29",
         "html":
-          "You got {totalScore} out of {maxScore} points.</br></br>Congratulation! You did great!"
+          "Gratulerer, du har fått nok poeng til å få ledetråder til påskeeggene, trykk på lenken: <a href=\"/clues\">her</a>"
       }, {
-        "expression": "{totalScore} > 7",
+        "expression": "{totalScore} <= 30",
         "html":
-          "You got {totalScore} out of {maxScore} points.</br></br>Well Done! <i>Your focus determines your reality.</i> And this is the way you passed the quiz."
-      }, {
-        "expression": "{totalScore} <= 7",
-        "html":
-          "You got {totalScore} out of {maxScore} points.</br></br><i>In my experience</i>, as Obi-Wan Kenobi said, <i>there's no such thing as luck.</i>"
+          "Du fikk {totalScore} poeng av {maxScore}. Du må klare minst 30 for å få ledetråd. trykk på lenken for å prøve igjen: <a href=\"/\">her</a>"
       }],
     "pages": [{
         "name":"page1",
@@ -59,7 +57,7 @@ export const personaliaJson = {
                 "type":"html",
                 "name":"info2",
                 "expression": "{totalScore}",
-                "html":"<img height=\"100\" width=\"170\" src=\""+LION+"\"/><legend/><p>{totalScore}</p>"
+                "html":"<img height=\"100\" width=\"170\" src=\""+LION+"\"/><legend/>"
             },
             {
             "type": "ranking",
@@ -102,7 +100,6 @@ export const personaliaJson = {
     "elements": [{
         "type": "html",
         "name": "info",
-        "html": `<img src=/ height="300" width="150" /><legend/>`,
     },
     {
         "type": "html",
@@ -124,16 +121,13 @@ export const personaliaJson = {
     {
         "type": "html",
         "name": "info",
-        "html": `<img src=/ height="250" width="170" /><legend/>`,
+        "html": "<img height=\"300\" width=\"470\" src=\""+RAMADAN+"\"/><legend/>",
     },
     {
-    "type": "radiogroup",
-    "name": "hovedstaden",
-    "title": "Hva heter hovedstaden i Norge?",
-    "choices": [
-        "Oslo", "Sverige", "Stockholm", "Bergen"
-    ],
-    "correctAnswer": "Oslo",
+    "type": "text",
+    "name": "ramadan",
+    "title": "Hvor mange dager må man faste i Ramadan?",
+    "correctAnswer": "30",
     "score": 5
     }],
     },{ "name":"page6",
@@ -141,17 +135,17 @@ export const personaliaJson = {
         {
             "type": "html",
             "name": "info",
-            "html": `<img src=/ height="150" width="170" /><legend/>`,
+            "html": "<img height=\"300\" width=\"470\" src=\""+MAN_PRAYING+"\"/><legend/>",
         },
         {
-        "type": "radiogroup",
-                "name": "pokemon",
-                "title": "Hvem er på bildet?",
+        "type": "text",
+                "name": "profeter",
+                "title": "Hvor mange profeter finnes det?",
                 "isRequired": true,
                 "choices": [
-                    "Johnny Test", "Sonic", "Ash", "Kattegutt"
+                    "12", "20", "30", "25"
                 ],
-                "correctAnswer": "Ash",
+                "correctAnswer": "25",
                 "score": 5
     }],
     }],

@@ -10,8 +10,8 @@ app.post('/api/start', (req, res) => {
   res.sendStatus(200);
 });
 
-app.listen(3000, () => {
-  console.log('Server is listening on port 3000');
+app.listen(3001, () => {
+  console.log('Server is listening on port 3001');
 });
 
 // Have Node serve the files for our built React app

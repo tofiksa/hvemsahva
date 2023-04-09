@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../components/Header'
 
-export const StartSide = () => {
+export const CluesPage = () => {
 
     const divStyle = {
         position: 'relative',

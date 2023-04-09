@@ -13,10 +13,7 @@ export const FrontPage = () => {
     return(
         <div id="container">
             <div><Header/></div>
-            
-            <Personalia/>
-            
+                <Personalia/>
         </div>
-        
     );
 }

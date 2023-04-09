@@ -1,7 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FrontPage } from './templates/FrontPage'
-import { StartSide } from './templates/StartSide';
+import { CluesPage } from './templates/CluesPage';
 import {
   BrowserRouter,
   Routes,
@@ -13,8 +13,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/quiz" element={<StartSide />} />
-        <Route path="/" element={<FrontPage />}/>
+        <Route path="/clues" element={<CluesPage />} />
+        <Route path="/" element={<FrontPage />} />
       </Routes>
     </BrowserRouter>
   );
