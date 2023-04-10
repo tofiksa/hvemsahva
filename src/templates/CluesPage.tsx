@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import Header from '../components/Header';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import { useNavigate } from 'react-router-dom';
 
 const CluesPage: React.FC = () => {
 
@@ -35,9 +33,15 @@ fontWeight: 'bold',
 width: '50%'
 };
 
+const navigate = useNavigate();
+
 const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsValid(checkText());
+
+    if (checkText()) {
+        navigate('/egg1');
+      }
   };
 
   const checkText = () => {
@@ -58,21 +62,21 @@ return (
 ></iframe>
 </div>
 <div style={legendStyle}>
-Hun gir de beste klemmene og alltid er nær,
-Hun gir deg kjærlighet, omsorg og beskyttelse så kjær.
-Hun hjelper deg når du faller og trøster deg når du gråter,
-Hun lager de beste måltidene, og når du er syk, så passer hun på deg hele natten.
+        Hun gir de beste klemmene og alltid er nær,
+        Hun gir deg kjærlighet, omsorg og beskyttelse så kjær.
+        Hun hjelper deg når du faller og trøster deg når du gråter,
+        Hun lager de beste måltidene, og når du er syk, så passer hun på deg hele natten.
 
-Hvem er denne personen så god og så varm,
-Som alltid vil være der for deg, og som aldri vil forsvinne eller gjøre deg harm?
+        Hvem er denne personen så god og så varm,
+        Som alltid vil være der for deg, og som aldri vil forsvinne eller gjøre deg harm?
     </div>
     <div style={{ display: 'flex', alignItems: 'center' }}>
     <Form onSubmit={handleSubmit} style={{ width: '50%' }}>
     <Form.Group controlId="formText">
-        <Form.Label>Skriv inn koden</Form.Label>
+        
         <Form.Control
             type="text"
-            placeholder="Enter text"
+            placeholder="Skriv inn koden her"
             value={text}
             onChange={(e) => setText(e.target.value)}
             isInvalid={!isValid}
