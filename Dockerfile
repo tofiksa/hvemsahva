@@ -6,7 +6,7 @@ RUN npm install
 COPY ./ /app/
 ENV API_KEY="d1WZ6hUHEXtGJzHkle79pA=="
 ENV API_SECRET="gBfknDkqFLvNXFEG/arw8NtqCTPtOkxF7ohX8bqDzzE="
-RUN npm run build
+RUN node backend/server.js && npm run build
 # Stage 1, based on Nginx, to have only the compiled app, ready for production with Nginx
 FROM nginx:1.15
 COPY --from=build-stage /app/build/ /usr/share/nginx/html

@@ -9,7 +9,7 @@ import MAN_PRAYING from '../images/manpraying.jpeg'
 
 
 export const personaliaJson = {
-    "title": "Påskeeggjakt 2023",
+    "title": "Påskeeggjakt 2024",
     "showProgressBar": "bottom",
     "firstPageIsStarted": true,
     "startSurveyText": "Start Quiz",

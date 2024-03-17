@@ -13,7 +13,7 @@ const Header: React.FC = () => {
     return (
       <div id="header">
         <h1>
-          Velkommen til Påskeeggjakt 2023
+          Velkommen til Påskeeggjakt 2024
           {easterEggs && (
             <img src={easterEggs.publicUrl} height="50" width="50" alt="easteregg" />
           )}
