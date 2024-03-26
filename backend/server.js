@@ -16,7 +16,7 @@ const supabase = createClient(
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtkaGFpdGxkZHNscHhwaHBjbnZjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTExODI3ODksImV4cCI6MjAyNjc1ODc4OX0.dbS0y-hKuH3m5fGdtX_eeYKVYKdiGs2iVf61EUmMkH4'
 );
 
-app.options('/api/start', cors())
+//app.options('/api/start', cors())
 
 app.post('/api/start',cors(), async (req, res) => {
   //console.log(req.body);
