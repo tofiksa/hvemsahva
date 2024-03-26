@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useCallback } from "react";
 import { Model } from "survey-core";
 import { Survey } from "survey-react-ui";
 import { Serializer } from "survey-core";
@@ -9,9 +9,6 @@ import "survey-core/survey.i18n";
 
 export const Personalia = () => {
 
-//StylesManager.applyTheme("modern");
-
-// Add a custom `score` property to survey questions
 Serializer.addProperty("question", {
     name: "score:number"
   });
@@ -30,6 +27,26 @@ Object.keys(data).forEach((qName) => {
 return totalScore;
 }
 
+function saveSurveyResults(url, json) {
+  fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json;charset=UTF-8'
+    },
+    body: JSON.stringify(json)
+  })
+  .then(response => {
+    if (response.ok) {
+      // Handle success
+    } else {
+      // Handle error
+    }
+  })
+  .catch(error => {
+    // Handle error
+  });
+}
+
 function calculateMaxScore(questions) {
     var maxScore = 0;
     questions.forEach((question) => {
@@ -43,22 +60,12 @@ function calculateMaxScore(questions) {
 const survey = new Model(personaliaJson);
 survey.locale = "no";
 
-survey.onComplete.add((sender, options) => {
-    console.log(JSON.stringify(sender.data, null, 3));
-});
-
-/* const alertResults = useCallback((sender) => {
-const results = JSON.stringify(sender.data);
-const totalScore = calculateTotalScore(sender.data);
-const maxScore = calculateMaxScore(sender.getAllQuestions());
-      
-// Save the scores in survey results
-sender.setValue("maxScore", maxScore);
-sender.setValue("totalScore", totalScore);
-console.log(results);
+const surveyComplete = useCallback((sender) => {
+  saveSurveyResults(
+    "http://localhost:3001/api/start",
+    sender.data
+  )
 }, []);
-
-survey.onComplete.add(alertResults); */
 
 survey.onCompleting.add((sender) => {
     const totalScore = calculateTotalScore(sender.data);
@@ -69,6 +76,6 @@ survey.onCompleting.add((sender) => {
     sender.setValue("totalScore", totalScore);
   });
 
-
+survey.onComplete.add(surveyComplete);
 return (<Survey model={survey} />);
 }
