@@ -62,7 +62,7 @@ survey.locale = "no";
 
 const surveyComplete = useCallback((sender) => {
   saveSurveyResults(
-    "http://localhost:3001/api/start",
+    "/api/start",
     sender.data
   )
 }, []);
