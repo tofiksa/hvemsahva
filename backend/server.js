@@ -30,7 +30,7 @@ app.post('/api/start',cors(), async (req, res) => {
     if (error) {
         res.send(error);
     }
-    res.send("created!!");
+    res.send(error);
 });
 
 app.listen(3001, () => {
