@@ -18,7 +18,7 @@ const supabase = createClient(
 
 //app.options('/api/start', cors())
 
-app.post('/api/start',cors(), async (req, res) => {
+app.post('/api/start', async (req, res) => {
   //console.log(req.body);
   const {error} = await supabase
         .from('highscore')

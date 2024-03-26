@@ -37,9 +37,9 @@ function saveSurveyResults(url, json) {
   })
   .then(response => {
     if (response.ok) {
-      // Handle success
+      console.log("updated!!")
     } else {
-      // Handle error
+      console.log("not updated!!!")
     }
   })
   .catch(error => {
