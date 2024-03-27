@@ -38,7 +38,8 @@ app.post('/api/add', async (req, res) => {
 app.get('/api/list', async (req, res) => {
   const {data, error} = await supabase
         .from('highscore')
-        .select()
+        .select('*',{ distinct: true })
+        .order('score', { ascending: false });;
     res.send(data);
 })
 
