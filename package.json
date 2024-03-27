@@ -30,7 +30,7 @@
     "web-vitals": "^3.3.0"
   },
   "scripts": {
-    "start": "from-env react-scripts start --apikey REACT_APP_API_KEY=%REACT_APP_API_KEY --apisecret REACT_APP_API_SECRET=%REACT_APP_API_SECRET",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
