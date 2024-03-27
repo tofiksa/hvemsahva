@@ -12,6 +12,7 @@ import BowserPage from './templates/BowserPage';
 import BleierPage from './templates/BleierPage';
 import NoraPage from './templates/NoraPage';
 import VeggiePage from './templates/VeggiePage';
+import HighScorePage from './templates/HighScorePage';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/egg2" element={<BleierPage />} />
         <Route path="/egg3" element={<NoraPage />} />
         <Route path="/egg4" element={<VeggiePage />} />
+        <Route path="/highscore" element={<HighScorePage />} />
         <Route path="/" element={<FrontPage />} />
       </Routes>
     </HashRouter>

@@ -26,3 +26,4 @@ package-lock.json
 
 supabase
 .env
+.fleek.json

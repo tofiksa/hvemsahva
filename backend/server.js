@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { createClient } = require('@supabase/supabase-js');
 const morgan = require('morgan');
 const express = require('express');
@@ -11,16 +12,16 @@ app.use(bodyParser.json());
 app.use(morgan('combined'));
 app.use(cors())
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 const supabase = createClient(
-  'https://kdhaitlddslpxphpcnvc.supabase.co',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtkaGFpdGxkZHNscHhwaHBjbnZjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTExODI3ODksImV4cCI6MjAyNjc1ODc4OX0.dbS0y-hKuH3m5fGdtX_eeYKVYKdiGs2iVf61EUmMkH4'
+  process.env.REACT_APP_SUPABASE_URL,
+  process.env.REACT_APP_SUPABASE_ANON_KEY
 );
 
 //app.options('/api/start', cors())
 
-app.post('/api/start', async (req, res) => {
+app.post('/api/add', async (req, res) => {
   //console.log(req.body);
   const {error} = await supabase
         .from('highscore')
@@ -28,11 +29,31 @@ app.post('/api/start', async (req, res) => {
             username: req.body.username,
             score: req.body.totalScore,
         })
-  console.log(error)      
     if (error) {
         res.send(error);
     }
     res.send(error);
+});
+
+app.get('/api/list', async (req, res) => {
+  const {data, error} = await supabase
+        .from('highscore')
+        .select()
+    res.send(data);
+})
+
+app.put('/api/:username', async (req, res) => {
+  const {error} = await supabase
+      .from('highscore')
+      .update({
+        username: req.body.username,
+        score: req.body.totalScore,
+      })
+      .eq('username', req.params.username)
+  if (error) {
+      res.send(error);
+  }
+  res.send("updated!!");
 });
 
 
