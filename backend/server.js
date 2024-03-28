@@ -12,7 +12,12 @@ app.use(bodyParser.json());
 app.use(morgan('combined'));
 app.use(cors())
 
-const PORT = process.env.BACKEND_PORT || 3000;
+let PORT = 0;
+
+if (process.env.NODE_ENV !== 'production')
+  PORT = process.env.BACKEND_PORT || 3000;
+else
+  PORT = process.env.PORT || 3000;
 
 const supabase = createClient(
   process.env.SUPABASE_URL,
