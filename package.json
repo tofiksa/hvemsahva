@@ -4,6 +4,11 @@
   "private": true,
   "homepage": "./",
   "proxy": "http://localhost:3000",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=10.x"
+  },
+  "engineStrict": true,
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@fleekhq/fleek-storage-js": "^1.0.24",
@@ -26,6 +31,7 @@
     "react-router": "^6.10.0",
     "react-router-dom": "^6.10.0",
     "react-scripts": "^5.0.1",
+    "semver": "^7.6.0",
     "survey-core": "^1.9.81",
     "survey-react": "^1.9.80",
     "survey-react-ui": "^1.9.81",
@@ -37,7 +43,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "heroku-postbuild": "npm install && npm run build"
+    "heroku-postbuild": "npm install && npm run build",
+    "check-node-version": "node check-node-version.js",
+    "preinstall": "npm run check-node-version"
   },
   "eslintConfig": {
     "extends": "react-app",
@@ -62,8 +70,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "from-env": "^1.1.4"
   }
 }
