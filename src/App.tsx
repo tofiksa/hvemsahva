@@ -9,7 +9,7 @@ import BleierPage from './templates/BleierPage';
 import NoraPage from './templates/NoraPage';
 import VeggiePage from './templates/VeggiePage';
 import HighScorePage from './templates/HighScorePage';
-import { getImageFromSupabaseStorage } from './services/retrieveFromStorage';
+import { getImagesFromSupabaseStorage } from './services/retrieveFromStorage';
 import React from 'react';
 
 function App() {
@@ -17,12 +17,10 @@ function App() {
 }
 
 const Pages = () => {
-  const [AllahImage, setAllahImage] = useState<any>('');
-
   useEffect(() => {
-    getImageFromSupabaseStorage('bear.png').then((resp) => {
-      setAllahImage(resp.signedUrl);
-    });
+    if (localStorage.getItem('images') === null) {
+      getImagesFromSupabaseStorage().then((resp) => {});
+    }
   }, []);
 
   return (

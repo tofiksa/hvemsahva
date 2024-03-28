@@ -10,12 +10,10 @@
   "engineStrict": true,
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "@fleekhq/fleek-storage-js": "^1.0.24",
     "@supabase/supabase-js": "^2.40.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
-    "aws-sdk": "^2.1348.0",
     "body-parser": "^1.20.2",
     "bootstrap": "^5.2.3",
     "cors": "^2.8.5",

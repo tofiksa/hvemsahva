@@ -1,41 +1,3 @@
-import fleekStorage from '@fleekhq/fleek-storage-js';
-
-const apiKey = process.env.REACT_APP_API_KEY;
-const apiSecret = process.env.REACT_APP_API_SECRET;
-
-export const getImageFromStorage = async (key: string) => {
-  const input = {
-    apiKey,
-    apiSecret,
-    key,
-    getOptions: ['hash', 'data', 'publicUrl'],
-  };
-
-  try {
-    const result = await fleekStorage.get(input);
-    return result;
-  } catch (e) {
-    console.log('error', e);
-  }
-};
-
-export const listFilesFromStorage = async () => {
-  const input = {
-    apiKey,
-    apiSecret,
-    getOptions: ['bucket', 'key', 'hash', 'publicUrl'],
-  };
-
-  try {
-    const result = await fleekStorage.listFiles(input);
-    result.map((file) => {
-      return file;
-    });
-  } catch (e) {
-    console.log('error', e);
-  }
-};
-
 export const getImageFromSupabaseStorage = async (image: any) => {
   const response = await fetch(`/api/image/${image}`);
   const imgurl = await response.json();
@@ -44,6 +6,32 @@ export const getImageFromSupabaseStorage = async (image: any) => {
 
 export const getImagesFromSupabaseStorage = async () => {
   const response = await fetch(`/api/images/list`);
-  console.log(response);
-  return response;
+  const imgList = await response.json();
+  const imageArray = [];
+
+  // Iterate through imgList and populate imageArray
+  for (const image of imgList) {
+    const imageUrl = await getImageFromSupabaseStorage(image.name).then(
+      (url) => {
+        return url.signedUrl;
+      },
+    );
+
+    imageArray.push({
+      name: image.name,
+      imgurl: imageUrl,
+    });
+  }
+
+  localStorage.setItem('images', JSON.stringify(imageArray));
+};
+
+export const getImageUrlByNameFromLocalStorage = (imageName: any) => {
+  const imageurllist = JSON.parse(localStorage.getItem('images'));
+  if (!imageurllist) return null; // If imageurllist is not found in localStorage
+
+  const filteredImage = imageurllist.filter(
+    (image: { name: any }) => image.name === imageName,
+  );
+  return filteredImage.length > 0 ? filteredImage[0].imgurl : null;
 };

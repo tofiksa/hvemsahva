@@ -66,14 +66,12 @@ app.get('/api/image/:image', async( req, res) => {
   const { data, error } = await supabase
   .storage
   .from('paaskequiz')
-  .createSignedUrl(`2024/${req.params.image}`, 60)
+  .createSignedUrl(`2024/${req.params.image}`, 31536000)
 
-  console.log('Retrieve image: ', data)
   if (data !== null)
     res.send(data)
   else
     res.send(error)
-    console.log('Retrieve error image: ', error)
 })
 
 app.get('/api/images/list', async( req, res) => {
@@ -85,11 +83,13 @@ app.get('/api/images/list', async( req, res) => {
     offset: 0,
     sortBy: { column: 'name', order: 'asc' },
   })
-  if (data !== null)
+  
+  if (data !== null) {
     res.send(data)
-  else
+  } else {
     res.send(error)
     console.log('Retrieve error image: ', error)
+  }
 })
 
 

@@ -1,14 +1,13 @@
-import EASTERBUNNY from '../images/Easter Egg Hunt GIF - Bugs Bunny Easter Basket Happy - Discover & Share GIFs.gif'
-import LION from '../images/lion.jpeg'
-import RABIT from '../images/rabit.png'
-import CHICKEN from '../images/chicken.jpeg'
-import BEAR from '../images/bear.png'
-import RAMADAN from '../images/ramadan.jpeg'
-import MAN_PRAYING from '../images/manpraying.jpeg'
+import { getImageUrlByNameFromLocalStorage } from '../services/retrieveFromStorage'
 
-
-
-
+const EASTERBUNNY = getImageUrlByNameFromLocalStorage('EasterEggHunt.gif');
+const LION = getImageUrlByNameFromLocalStorage('lion.jpeg');
+const RABIT = getImageUrlByNameFromLocalStorage('rabit.png');
+const CHICKEN = getImageUrlByNameFromLocalStorage('chicken.jpeg');
+const BEAR = getImageUrlByNameFromLocalStorage('bear.png');
+const RAMADAN = getImageUrlByNameFromLocalStorage('ramadan.jpeg');
+const MAN_PRAYING = getImageUrlByNameFromLocalStorage('manpraying.jpeg');
+const ALLAH = getImageUrlByNameFromLocalStorage('Allah.jpeg');
 
 export const personaliaJson = {
     "title": "Påskeeggjakt 2024",
@@ -40,7 +39,7 @@ export const personaliaJson = {
                 "type": "html",
                 "name": "info",
                 
-                "html": "<img height=\"100\" width=\"170\" src=\"\"/>",
+                "html": "<img height=\"100\" width=\"170\" src=\""+ALLAH+"\"/>",
             },
             {
             "type": "radiogroup",
