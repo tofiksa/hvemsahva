@@ -15,8 +15,8 @@ app.use(cors())
 const PORT = process.env.PORT || 3000;
 
 const supabase = createClient(
-  process.env.REACT_APP_SUPABASE_URL,
-  process.env.REACT_APP_SUPABASE_ANON_KEY
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_ANON_KEY
 );
 
 //app.options('/api/start', cors())
