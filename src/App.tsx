@@ -1,33 +1,41 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { FrontPage } from './templates/FrontPage'
+import { FrontPage } from './templates/FrontPage';
 import CluesPage from './templates/CluesPage';
-import {
-  HashRouter,
-  Routes,
-  Route,
-} from "react-router-dom";
-import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import BowserPage from './templates/BowserPage';
 import BleierPage from './templates/BleierPage';
 import NoraPage from './templates/NoraPage';
 import VeggiePage from './templates/VeggiePage';
 import HighScorePage from './templates/HighScorePage';
+import { getImageFromSupabaseStorage } from './services/retrieveFromStorage';
+import React from 'react';
 
 function App() {
-  return (
-    <HashRouter>
-      <Routes>
-        <Route path="/clues" element={<CluesPage />} />
-        <Route path="/egg1" element={<BowserPage />} />
-        <Route path="/egg2" element={<BleierPage />} />
-        <Route path="/egg3" element={<NoraPage />} />
-        <Route path="/egg4" element={<VeggiePage />} />
-        <Route path="/highscore" element={<HighScorePage />} />
-        <Route path="/" element={<FrontPage />} />
-      </Routes>
-    </HashRouter>
-  );
+  return <Pages />;
 }
+
+const Pages = () => {
+  const [AllahImage, setAllahImage] = useState<any>('');
+
+  useEffect(() => {
+    getImageFromSupabaseStorage('bear.png').then((resp) => {
+      setAllahImage(resp.signedUrl);
+    });
+  }, []);
+
+  return (
+    <Routes>
+      <Route path="/clues" element={<CluesPage />} />
+      <Route path="/egg1" element={<BowserPage />} />
+      <Route path="/egg2" element={<BleierPage />} />
+      <Route path="/egg3" element={<NoraPage />} />
+      <Route path="/egg4" element={<VeggiePage />} />
+      <Route path="/highscore" element={<HighScorePage />} />
+      <Route path="/" element={<FrontPage />} />
+    </Routes>
+  );
+};
 
 export default App;

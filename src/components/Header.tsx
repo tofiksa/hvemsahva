@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { getImageFromStorage } from '../services/retrieveFromStorage';
+import { getImageFromSupabaseStorage } from '../services/retrieveFromStorage';
 import NavBar from './NavBar';
 
 const Header: React.FC = () => {
   const [easterEggs, setEasterEggs] = useState<any>('');
 
   useEffect(() => {
-    getImageFromStorage('eastereggs.png').then((url: any) => {
+    getImageFromSupabaseStorage('eastereggs.png').then((url: any) => {
       setEasterEggs(url);
     });
   }, []);
@@ -18,7 +18,7 @@ const Header: React.FC = () => {
           Velkommen til Påskeeggjakt 2024
           {easterEggs && (
             <img
-              src={easterEggs.publicUrl}
+              src={easterEggs.signedUrl}
               height="50"
               width="50"
               alt="easteregg"

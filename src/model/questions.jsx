@@ -1,11 +1,13 @@
 import EASTERBUNNY from '../images/Easter Egg Hunt GIF - Bugs Bunny Easter Basket Happy - Discover & Share GIFs.gif'
-import ALLAH from '../images/Allah.jpeg'
 import LION from '../images/lion.jpeg'
 import RABIT from '../images/rabit.png'
 import CHICKEN from '../images/chicken.jpeg'
 import BEAR from '../images/bear.png'
 import RAMADAN from '../images/ramadan.jpeg'
 import MAN_PRAYING from '../images/manpraying.jpeg'
+
+
+
 
 
 export const personaliaJson = {
@@ -30,7 +32,7 @@ export const personaliaJson = {
     }, {
         "type": "text",
         "name": "username",
-        "titleLocation": "hidden",
+        "title": "Skriv inn navnet ditt",
         "isRequired": true
     }]},{ 
         "elements": [
@@ -38,7 +40,7 @@ export const personaliaJson = {
                 "type": "html",
                 "name": "info",
                 
-                "html": "<img height=\"100\" width=\"170\" src=\""+ALLAH+"\"/>",
+                "html": "<img height=\"100\" width=\"170\" src=\"\"/>",
             },
             {
             "type": "radiogroup",

@@ -9,8 +9,8 @@ function NavBar() {
       <Navbar bg="light" data-bs-theme="light">
         <Container>
           <Nav className="me-auto">
-            <Nav.Link href="#/">Forsiden</Nav.Link>
-            <Nav.Link href="#/highscore">Highscore</Nav.Link>
+            <Nav.Link href="/">Forsiden</Nav.Link>
+            <Nav.Link href="/highscore">Highscore</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
