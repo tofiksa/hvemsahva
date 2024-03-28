@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "./",
-  "proxy": "http://localhost:3001",
+  "proxy": "http://localhost:3000",
   "dependencies": {
     "@fleekhq/fleek-storage-js": "^1.0.24",
     "@supabase/supabase-js": "^2.40.0",
