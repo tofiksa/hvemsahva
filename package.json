@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "./",
-  "proxy": "http://localhost:3000",
   "engines": {
     "node": ">=18.0.0",
     "npm": ">=10.x"
@@ -23,6 +22,7 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "history": "^5.3.0",
+    "http-proxy-middleware": "^2.0.6",
     "morgan": "^1.10.0",
     "nodemon": "^3.1.0",
     "react": "^18.2.0",
@@ -39,7 +39,8 @@
   },
   "scripts": {
     "start": "node backend/server.js",
-    "dev": "node backend/server.js && npm run start",
+    "backend:dev": "node backend/server.js",
+    "frontend:dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
