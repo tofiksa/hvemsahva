@@ -1,4 +1,4 @@
-import './App.css';
+import './input.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FrontPage } from './templates/FrontPage';
 import CluesPage from './templates/CluesPage';

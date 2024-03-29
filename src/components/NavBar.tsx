@@ -6,7 +6,7 @@ import Navbar from 'react-bootstrap/Navbar';
 function NavBar() {
   return (
     <>
-      <Navbar bg="light" data-bs-theme="light">
+      <Navbar bg="dark" data-bs-theme="dark">
         <Container>
           <Nav className="me-auto">
             <Nav.Link href="/">Forsiden</Nav.Link>
