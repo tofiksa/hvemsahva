@@ -8,8 +8,9 @@
 p {
   font-size: large;
   line-height: 42px;
-  text-align: justify;
+  text-align: inherit;
   font-family: Dyslexie;
+  margin: 0.5em;
 }
 
 img[alt="easteregg"] {
