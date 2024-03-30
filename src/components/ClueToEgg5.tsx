@@ -38,27 +38,32 @@ export const RenderClueToEgg5 = () => {
         Det siste egget finner dere her. Når dere finner den så må dere legge
         inn riktig symbol før dere får ledetråd til hvor neste egg ligger.
       </p>
-      <Form onSubmit={handleOption} style={{ width: '50%' }}>
-        <Form.Group controlId="formSelect">
-          <Form.Control
-            as="select"
-            value={selectedOption}
-            onChange={(e) => setSelectedOption(e.target.value)}
+      <div className="flex items-center m-4">
+        <Form onSubmit={handleOption} style={{ width: '100%' }}>
+          <Form.Group controlId="formSelect">
+            <Form.Control
+              as="select"
+              value={selectedOption}
+              onChange={(e) => setSelectedOption(e.target.value)}
+            >
+              <option value="">Velg en mulighet</option>
+              <option value="sirkel">Sirkel</option>
+              <option value="firkant">Firkant</option>
+              <option value="kryss">Kryss</option>
+              <option value="trekant">Trekant</option>
+            </Form.Control>
+          </Form.Group>
+          {showFeedback && (
+            <p>{selectedOption !== 'sirkel' ? 'Feil svar!' : 'Riktig svar!'}</p>
+          )}
+          <button
+            type="submit"
+            className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold rounded-full size-64"
           >
-            <option value="">Velg en mulighet</option>
-            <option value="sirkel">Sirkel</option>
-            <option value="firkant">Firkant</option>
-            <option value="kryss">Kryss</option>
-            <option value="trekant">Trekant</option>
-          </Form.Control>
-        </Form.Group>
-        {showFeedback && (
-          <p>{selectedOption !== 'sirkel' ? 'Feil svar!' : 'Riktig svar!'}</p>
-        )}
-        <Button variant="primary" type="submit">
-          Send
-        </Button>
-      </Form>
+            Svar
+          </button>
+        </Form>
+      </div>
     </>
   );
 };
