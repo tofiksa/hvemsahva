@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Header from '../components/Header';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -38,7 +37,6 @@ const BleierPage: React.FC = () => {
 
   return (
     <>
-      <Header />
       <h1>Andre egget ligger der Nora har bleiene sine.</h1>
       <Container className="d-flex flex-column justify-content-center align-items-center">
         <Row style={rowStyle}>

@@ -1,13 +1,11 @@
 import { getImageUrlByNameFromLocalStorage } from '../services/retrieveFromStorage'
 
 const EASTERBUNNY = getImageUrlByNameFromLocalStorage('EasterEggHunt.gif');
-const RABIT = getImageUrlByNameFromLocalStorage('rabit.png');
-const CHICKEN = getImageUrlByNameFromLocalStorage('chicken.jpeg');
 const KONGKIFOT = getImageUrlByNameFromLocalStorage('kongkifot.jpg');
 const FEILKONGKIFOT1 = getImageUrlByNameFromLocalStorage('feilkifot1.jpg');
 const FEILKONGKIFOT2 = getImageUrlByNameFromLocalStorage('feilkifot2.jpg');
 const FEILKONGKIFOT3 = getImageUrlByNameFromLocalStorage('feilkifot3.jpg');
-const RAMADAN = getImageUrlByNameFromLocalStorage('ramadan.jpeg');
+const LAYLAT = getImageUrlByNameFromLocalStorage('laylat.jpeg');
 const MAN_PRAYING = getImageUrlByNameFromLocalStorage('manpraying.jpeg');
 const KONGKIFOTSLOTT =
 getImageUrlByNameFromLocalStorage('kongKifotSlott.png');
@@ -78,7 +76,7 @@ export const personaliaJson = {
                         "ر",
                     ],
                     "correctAnswer": ["أ","د","ر","س","ل","ن","و"],
-                    "score": 5
+                    "score": 25
         }],
     },{ "name":"page3",
     "elements": [{
@@ -122,21 +120,23 @@ export const personaliaJson = {
         "Hva heter du?", "Hei, hvor er bussen?", "Hva er klokken?", "Jeg vil sove"
     ],
     "correctAnswer": "Hva heter du?",
-    "score": 5
+    "score": 15
     }]
     },{ "name":"page5",
     "elements": [
     {
         "type": "html",
         "name": "info",
-        "html": "<img height=\"300\" width=\"470\" src=\""+RAMADAN+"\"/><legend/>",
+        "html": "<img height=\"300\" width=\"470\" src=\""+LAYLAT+"\"/><legend/>",
     },
     {
-    "type": "text",
+    "type": "radiogroup",
     "name": "ramadan",
-    "title": "Hvor mange dager må man faste i Ramadan?",
-    "correctAnswer": "30",
-    "score": 5
+    "title": "Hva kalles den viktigste dagen under Ramadan?",
+    "choices": [
+        "Dag 1", "Laylat al-Qadr", "Ashura", "Eid Al Fitr"
+    ],
+    "score": 25
     }],
     },{ "name":"page6",
     "elements": [
@@ -148,7 +148,7 @@ export const personaliaJson = {
         {
         "type": "text",
                 "name": "profeter",
-                "title": "Hvor mange profeter finnes det?",
+                "title": "Hvor mange profeter finnes det i Koranen?",
                 "isRequired": true,
                 "choices": [
                     "12", "20", "30", "25"
@@ -156,5 +156,28 @@ export const personaliaJson = {
                 "correctAnswer": "25",
                 "score": 5
     }],
-    }],
+    }, { "name":"page7",
+    "elements": [
+        {
+         "type": "boolean",
+         "name": "ramadan",
+         "title": "Er ramadan på samme dato hvert år?",
+         "isRequired": true,
+         "labelTrue": "Ja",
+         "labelFalse": "Nei",
+         "swapOrder": true,
+         "correctAnswer": false,
+         "score": 10
+        }
+       ]},
+    { "name":"page8",
+    "elements": [
+        {
+            "type": "signaturepad",
+            "name": "signature",
+            "title": "Skriv navnet ditt på arabisk",
+            "isRequired": true,
+            "waitForUpload": true
+           }
+    ]}],
   };

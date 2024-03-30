@@ -27,12 +27,13 @@ const supabase = createClient(
 //app.options('/api/start', cors())
 
 app.post('/api/add', async (req, res) => {
-  //console.log(req.body);
+  console.log(req.body);
   const {error} = await supabase
         .from('highscore')
         .insert({
             username: req.body.username,
             score: req.body.totalScore,
+            signature: req.body.signature,
         })
     if (error) {
         res.send(error);
@@ -92,6 +93,16 @@ app.get('/api/images/list', async( req, res) => {
   }
 })
 
+app.post('/api/upload', async( req, res ) => {
+  
+  console.log('uploaded file: ', req.body)
+  const { data, error } = await supabase.storage.from('paaskequiz').upload('2024', req.body.file)
+  if (error) {
+    res.send(error);
+  } else {
+    res.send(data);
+  }
+})
 
 // Have Node serve the files for our built React app
 app.use(express.static(path.resolve(__dirname, '../build')));

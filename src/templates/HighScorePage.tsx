@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Header from '../components/Header';
 import Container from 'react-bootstrap/Container';
 import Table from 'react-bootstrap/Table';
 import { useNavigate } from 'react-router-dom';
@@ -20,7 +19,6 @@ const HighScorePage: React.FC = () => {
 
   return (
     <>
-      <Header />
       <h1>Highscorelista</h1>
       <Container className="d-flex flex-column justify-content-center align-items-center">
         <Table striped bordered hover variant="dark">
@@ -29,6 +27,7 @@ const HighScorePage: React.FC = () => {
               <th>#</th>
               <th>Navn</th>
               <th>Poeng</th>
+              <th>Signature</th>
             </tr>
           </thead>
           <tbody>
@@ -39,6 +38,9 @@ const HighScorePage: React.FC = () => {
                       <td>{score.id}</td>
                       <td>{score.username}</td>
                       <td>{score.score}</td>
+                      <td>
+                        <img src={score.signature} alt="signatur på arabisk" />
+                      </td>
                     </tr>
                   );
                 })

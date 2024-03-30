@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Header from '../components/Header';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -38,7 +37,6 @@ const BowserPage: React.FC = () => {
 
   return (
     <>
-      <Header />
       <h1>Første egget ligger i Bowser sitt slott!!</h1>
       <Container className="d-flex flex-column justify-content-center align-items-center">
         <Row style={rowStyle}>

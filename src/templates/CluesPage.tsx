@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Header from '../components/Header';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
@@ -51,7 +50,6 @@ const CluesPage: React.FC = () => {
 
   return (
     <>
-      <Header />
       <div style={iframeWrapperStyle}>
         <iframe
           src="https://share.synthesia.io/embeds/videos/5b83a441-7de4-4238-8ca0-63ffb50eb72a"
