@@ -62,9 +62,12 @@ const VeggiePage: React.FC = () => {
                   <Form.Control.Feedback type="invalid">
                     Feil kode
                   </Form.Control.Feedback>
-                  <Button variant="primary" type="submit">
+                  <button
+                    type="submit"
+                    className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold rounded-full size-64"
+                  >
                     Svar
-                  </Button>
+                  </button>
                 </Form.Group>
               </Form>
             </div>
