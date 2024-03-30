@@ -15,15 +15,7 @@ export const personaliaJson = {
     "showProgressBar": "bottom",
     "firstPageIsStarted": true,
     "startSurveyText": "Start Quiz",
-    "completedHtmlOnCondition": [{
-        "expression": "{totalScore} > 29",
-        "html":
-          "Gratulerer, du har fått nok poeng til å få ledetråder til påskeeggene, trykk på lenken: <a href=\"/clues\">her</a>"
-      }, {
-        "expression": "{totalScore} <= 30",
-        "html":
-          "Du fikk {totalScore} poeng av {maxScore}. Du må klare minst 30 for å få ledetråd. trykk på lenken for å prøve igjen: <a href=\"/\">her</a>"
-      }],
+    "completedHtml":"Du klarte {totalScore} poeng, trykk på kyllingen for å få ledetråder til påskeeggene: <a href=\"/clues\">🐥</a>",
     "pages": [{
         "name":"page1",
     "elements": [{
