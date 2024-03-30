@@ -19,7 +19,7 @@ export const RenderClueToEgg3 = () => {
       // Incorrect answer
       setShowFeedback(false);
     }
-    if (selectedOption === 'trekant') {
+    if (selectedOption === 'firkant') {
       navigate('/egg2');
     }
   };
@@ -54,7 +54,7 @@ export const RenderClueToEgg3 = () => {
           </Form.Control>
         </Form.Group>
         {showFeedback && (
-          <p>{selectedOption !== 'trekant' ? 'Feil svar!' : 'Riktig svar!'}</p>
+          <p>{selectedOption !== 'firkant' ? 'Feil svar!' : 'Riktig svar!'}</p>
         )}
         <Button variant="primary" type="submit">
           Send
