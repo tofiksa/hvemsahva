@@ -1,36 +1,77 @@
-import React from 'react';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import { getImageUrlByNameFromLocalStorage } from '../services/retrieveFromStorage';
+import React, { useState } from 'react';
+import { Form, Button } from 'react-bootstrap';
+import { ClueToTreasure } from '../components/ClueToTreasure';
 
 const VeggiePage: React.FC = () => {
-  const SKAP = getImageUrlByNameFromLocalStorage('skap.avif');
+  const [text, setText] = useState('');
 
-  const imageStyle: React.CSSProperties = {
-    marginBottom: '30px',
+  const [isValid, setIsValid] = useState(false);
+
+  const iframeWrapperStyle: React.CSSProperties = {
+    position: 'relative',
+    overflow: 'hidden',
+    paddingTop: '56.25%',
   };
 
-  const rowStyle: React.CSSProperties = {
-    marginBottom: '30px',
+  const iframeStyle: React.CSSProperties = {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    top: '0',
+    left: '0',
+    border: 'none',
+    padding: '0',
+    margin: '0',
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsValid(checkText());
+  };
+
+  const checkText = () => {
+    return (
+      text.toLowerCase() === 'samarbeid' || text.toLowerCase() === 'Samarbeid'
+    );
   };
 
   return (
     <>
-      <h1>Siste egget ligger der vi pleier å ha poteter.</h1>
-      <Container className="d-flex flex-column justify-content-center align-items-center">
-        <Row style={rowStyle}>
-          <Col className="d-flex justify-content-center align-items-center">
-            <img
-              src={SKAP}
-              alt=""
-              width="400"
-              height="400"
-              style={imageStyle}
-            />
-          </Col>
-        </Row>
-      </Container>
+      <div className="container">
+        {!isValid && (
+          <>
+            <div style={iframeWrapperStyle}>
+              <iframe
+                src="https://share.synthesia.io/embeds/videos/dca7ff9d-2722-47b1-915f-43d7d55d9f2c"
+                loading="lazy"
+                title="Synthesia video player - Your AI video"
+                allow="encrypted-media; fullscreen;"
+                style={iframeStyle}
+              ></iframe>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <Form onSubmit={handleSubmit} style={{ width: '50%' }}>
+                <Form.Group controlId="formText">
+                  <Form.Control
+                    type="text"
+                    placeholder="Skriv inn ordet her"
+                    value={text}
+                    onChange={(e) => setText(e.target.value)}
+                    isInvalid={!isValid}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Feil kode
+                  </Form.Control.Feedback>
+                  <Button variant="primary" type="submit">
+                    Svar
+                  </Button>
+                </Form.Group>
+              </Form>
+            </div>
+          </>
+        )}
+        {isValid && <ClueToTreasure />}
+      </div>
     </>
   );
 };

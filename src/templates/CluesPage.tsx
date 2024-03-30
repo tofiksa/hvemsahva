@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { useNavigate } from 'react-router-dom';
-import { getImageUrlByNameFromLocalStorage } from '../services/retrieveFromStorage';
+
+import { RenderClueToEgg2 } from '../components/ClueToEgg2';
 
 const CluesPage: React.FC = () => {
   const [text, setText] = useState('');
+
   const [isValid, setIsValid] = useState(false);
-  const LEKEPLASS = getImageUrlByNameFromLocalStorage('lekeplass.jpg');
 
   const iframeWrapperStyle: React.CSSProperties = {
     position: 'relative',
@@ -33,35 +33,14 @@ const CluesPage: React.FC = () => {
     width: '50%',
   };
 
-  const navigate = useNavigate();
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsValid(checkText());
-
-    if (checkText()) {
-      //navigate('/egg1');
-      RenderClueToEgg1();
-    }
   };
 
   const checkText = () => {
     return (
       text.toLowerCase() === 'hanan' || text.toLowerCase() === 'tante hanan'
-    );
-  };
-
-  const RenderClueToEgg1 = () => {
-    return (
-      <>
-        <img
-          srcSet={`${LEKEPLASS} 320w, ${LEKEPLASS} 680w, ${LEKEPLASS}   960w, ${LEKEPLASS} 1980w`}
-          src={LEKEPLASS}
-          alt="lekeplass"
-          height={800}
-          width={400}
-        />
-      </>
     );
   };
 
@@ -100,7 +79,7 @@ const CluesPage: React.FC = () => {
             </div>
           </>
         )}
-        {isValid && <RenderClueToEgg1 />}
+        {isValid && <RenderClueToEgg2 />}
       </div>
     </>
   );
