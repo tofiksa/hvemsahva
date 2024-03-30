@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
+import { getImageUrlByNameFromLocalStorage } from '../services/retrieveFromStorage';
 
 const CluesPage: React.FC = () => {
   const [text, setText] = useState('');
   const [isValid, setIsValid] = useState(false);
+  const LEKEPLASS = getImageUrlByNameFromLocalStorage('lekeplass.jpg');
 
   const iframeWrapperStyle: React.CSSProperties = {
     position: 'relative',
@@ -38,7 +40,8 @@ const CluesPage: React.FC = () => {
     setIsValid(checkText());
 
     if (checkText()) {
-      navigate('/egg1');
+      //navigate('/egg1');
+      RenderClueToEgg1();
     }
   };
 
@@ -48,43 +51,56 @@ const CluesPage: React.FC = () => {
     );
   };
 
+  const RenderClueToEgg1 = () => {
+    return (
+      <>
+        <img
+          srcSet={`${LEKEPLASS} 320w, ${LEKEPLASS} 680w, ${LEKEPLASS}   960w, ${LEKEPLASS} 1980w`}
+          src={LEKEPLASS}
+          alt="lekeplass"
+          height={800}
+          width={400}
+        />
+      </>
+    );
+  };
+
   return (
     <>
-      <div style={iframeWrapperStyle}>
-        <iframe
-          src="https://share.synthesia.io/embeds/videos/5b83a441-7de4-4238-8ca0-63ffb50eb72a"
-          loading="lazy"
-          title="Synthesia video player - Your AI video"
-          allow="encrypted-media; fullscreen;"
-          style={iframeStyle}
-        ></iframe>
-      </div>
-      <div style={legendStyle}>
-        Hun gir de beste klemmene og alltid er nær, Hun gir deg kjærlighet,
-        omsorg og beskyttelse så kjær. Hun hjelper deg når du faller og trøster
-        deg når du gråter, Hun lager de beste måltidene, og når du er syk, så
-        passer hun på deg hele natten. Hvem er denne personen så god og så varm,
-        Som alltid vil være der for deg, og som aldri vil forsvinne eller gjøre
-        deg harm?
-      </div>
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-        <Form onSubmit={handleSubmit} style={{ width: '50%' }}>
-          <Form.Group controlId="formText">
-            <Form.Control
-              type="text"
-              placeholder="Skriv inn koden her"
-              value={text}
-              onChange={(e) => setText(e.target.value)}
-              isInvalid={!isValid}
-            />
-            <Form.Control.Feedback type="invalid">
-              Feil kode
-            </Form.Control.Feedback>
-          </Form.Group>
-          <Button variant="primary" type="submit">
-            Svar
-          </Button>
-        </Form>
+      <div className="container">
+        {!isValid && (
+          <>
+            <div style={iframeWrapperStyle}>
+              <iframe
+                src="https://share.synthesia.io/embeds/videos/5b83a441-7de4-4238-8ca0-63ffb50eb72a"
+                loading="lazy"
+                title="Synthesia video player - Your AI video"
+                allow="encrypted-media; fullscreen;"
+                style={iframeStyle}
+              ></iframe>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <Form onSubmit={handleSubmit} style={{ width: '50%' }}>
+                <Form.Group controlId="formText">
+                  <Form.Control
+                    type="text"
+                    placeholder="Skriv inn koden her"
+                    value={text}
+                    onChange={(e) => setText(e.target.value)}
+                    isInvalid={!isValid}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Feil kode
+                  </Form.Control.Feedback>
+                  <Button variant="primary" type="submit">
+                    Svar
+                  </Button>
+                </Form.Group>
+              </Form>
+            </div>
+          </>
+        )}
+        {isValid && <RenderClueToEgg1 />}
       </div>
     </>
   );

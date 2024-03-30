@@ -27,7 +27,7 @@ export const getImagesFromSupabaseStorage = async () => {
 };
 
 export const getImageUrlByNameFromLocalStorage = (imageName: any) => {
-  const imageurllist = JSON.parse(localStorage.getItem('images'));
+  const imageurllist = JSON.parse(localStorage.getItem('images')!);
   if (!imageurllist) return null; // If imageurllist is not found in localStorage
 
   const filteredImage = imageurllist.filter(
